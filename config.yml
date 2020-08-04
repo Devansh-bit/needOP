@@ -1,0 +1,42 @@
+#DISCLAIMER! This plugin is solely for the purpose of server protection and therefore needs to have no loopholes.
+#EDIT ONLY THE PARAMETERS
+
+
+
+#Enter OP user name
+#permission:
+#  - devansh
+#  - devansh1
+#  - devansh2
+permission:
+  - devansh1
+
+
+#Enter OP password under "password:" for each OP respectively (As the order in "permission"). Example - the password for "devansh2" will be "test2"
+#password:
+#  - test
+#  - test1
+#  - test2
+password:
+  - test
+
+
+# If 'true' console is enable , If 'false' console is disable at server start.
+console-enable: true
+
+# This only for console command type in console "pin test" to enable the console. If the password entered is wrong 3 times,
+#The console will be locked PERMANENTLY and the server will require a restart. Use cautiously!
+
+ 
+# You can set your password here for the console only "pin" command
+secret-password: test
+
+
+#Permissions for unauthorized OP
+#true for enable and false for disable
+damage-other-entities: false
+break-blocks: false
+place-blocks: false
+interactions: true
+chat: false
+move: true

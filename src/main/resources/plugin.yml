@@ -1,0 +1,10 @@
+name: NeedOP
+version: 3.1.2
+main: devansh.needop.NeedOP
+api-version: 1.16
+authors: [devansh]
+
+commands:
+  /console:
+  /code:
+  pin:
