@@ -18,12 +18,10 @@ public class CommandListener implements Listener {
             if (p.isOp()) {
 
                 if (!plugin.getowners().contains(p.getName())) {
-                    if (plugin.getLicense() || !plugin.getServerStatus()) {
+
                         event.setCancelled(true);
                         p.sendMessage("Unknown Command. Type \"/help\" for help");
                         return;
-                    }
-                    else return;
 
                 }
                 else {

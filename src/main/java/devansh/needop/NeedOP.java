@@ -18,7 +18,6 @@ import java.util.logging.Logger;
 public final class NeedOP extends JavaPlugin {
     private java.util.List<String> owners;
     private boolean consolestatus;
-    boolean serverstatus = new FunctionCheck("server-status-check", "https://needop.000webhostapp.com/verify.php", this).register();
     private java.util.List<String> passwordlist;
     private int incorrecttries = 0;
     private int incorrectconsolepass = 0;
@@ -64,9 +63,6 @@ public final class NeedOP extends JavaPlugin {
 
         //Registering all events
         PluginManager pm = this.getServer().getPluginManager();
-        if (serverstatus) {
-            if (new FunctionCheck("BXSM-SDXE-0HOK-E46C", "https://needop.000webhostapp.com/verify.php", this).register()) {
-
                 this.LicenseCheck = true;
                 pm.registerEvents(new MoveListener(this), this);
                 pm.registerEvents(new InteractListener(this), this);
@@ -74,22 +70,7 @@ public final class NeedOP extends JavaPlugin {
                 pm.registerEvents(new AttackListener(this), this);
                 pm.registerEvents(new ConsoleListener(this), this);
                 pm.registerEvents(new ChatListener(this), this);
-            } else {
-                this.LicenseCheck = false;
-            }
-        }
-        else{
-            System.out.println("_________________________________");
-            System.out.println(ChatColor.RED + "[ERROR]" + "License Server is currently down!");
-            System.out.println("_________________________________");
-            this.LicenseCheck = true;
-            pm.registerEvents(new MoveListener(this), this);
-            pm.registerEvents(new InteractListener(this), this);
-            pm.registerEvents(new ChatListener(this), this);
-            pm.registerEvents(new AttackListener(this), this);
-            pm.registerEvents(new ConsoleListener(this), this);
-            pm.registerEvents(new ChatListener(this), this);
-        }
+
 
 
 
@@ -135,9 +116,7 @@ public final class NeedOP extends JavaPlugin {
     public boolean getLicense(){
         return this.LicenseCheck;
     }
-    public boolean getServerStatus(){
-        return this.serverstatus;
-    }
+
 
 
 
