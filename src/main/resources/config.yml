@@ -59,7 +59,7 @@ break-blocks: false
 #If false, unauthorized OP CANNOT place blocks
 place-blocks: false
 
-#If false, unauthorized OP CANNOT interact with the environtment(placing water, opening doors)
+#If false, unauthorized OP CANNOT interact with the environment(placing water, opening doors)
 interactions: false
 
 #If false, unauthorized OP CANNOT use the Chat

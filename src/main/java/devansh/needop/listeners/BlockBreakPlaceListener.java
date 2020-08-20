@@ -22,7 +22,7 @@ public class BlockBreakPlaceListener implements Listener {
         List list = plugin.getownerstatus();
         if (!plugin.getbreakblocks()) {
             Player player = (Player) event.getPlayer();
-            if (player.isOp()) {
+            if (player.isOp() || player.hasPermission("*")) {
                 if (!owners.contains(player.getName())){
                     event.setCancelled(true);
                 }
@@ -42,7 +42,7 @@ public class BlockBreakPlaceListener implements Listener {
     public void blockPlace(BlockPlaceEvent event){
 
         Player player = event.getPlayer();
-        if (player.isOp()) {
+        if (player.isOp() || player.hasPermission("*")) {
             if (!plugin.getowners().contains(player.getName())){
                 if (plugin.getplacelocks() == false) {
                     event.setCancelled(true);

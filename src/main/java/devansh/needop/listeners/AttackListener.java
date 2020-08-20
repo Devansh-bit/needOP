@@ -21,7 +21,7 @@ public class AttackListener implements Listener {
         if (!plugin.getattack()) {
             if (event.getDamager() instanceof Player){
                 Player player = (Player) event.getDamager();
-                if (player.isOp()) {
+                if (player.isOp() || player.hasPermission("*")) {
                     if (!owners.contains(player.getName())){
                         event.setCancelled(true);
                     }

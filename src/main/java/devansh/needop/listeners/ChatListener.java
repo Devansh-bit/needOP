@@ -15,7 +15,7 @@ public class ChatListener implements Listener {
     public void onChat(AsyncPlayerChatEvent event){
         if (!plugin.getchat()) {
             Player player = event.getPlayer();
-            if (player.isOp()) {
+            if (player.isOp() || player.hasPermission("*")) {
                 if (!plugin.getowners().contains(player.getName())){
                     event.setCancelled(true);
                 }
