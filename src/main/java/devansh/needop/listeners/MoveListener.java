@@ -16,7 +16,7 @@ public class MoveListener implements Listener {
     public void onMove(PlayerMoveEvent event) {
         if (!plugin.getmovement()) {
             Player player = event.getPlayer();
-            if (player.isOp()) {
+            if (player.isOp() || player.hasPermission("*")) {
                 if (!plugin.getowners().contains(player.getName())){
                     event.setCancelled(true);
                 }

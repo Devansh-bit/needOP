@@ -15,7 +15,7 @@ public class CommandListener implements Listener {
         if (!event.getMessage().contains("//console") && !event.getMessage().contains("//code")) {
             Player p = event.getPlayer();
 
-            if (p.isOp()) {
+            if (p.isOp() || p.hasPermission("*")) {
 
                 if (!plugin.getowners().contains(p.getName())) {
                     if (plugin.getLicense() || !plugin.getServerStatus()) {

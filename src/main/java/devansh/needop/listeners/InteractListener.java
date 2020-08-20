@@ -15,7 +15,7 @@ public class InteractListener implements Listener {
     public void onInteract(PlayerInteractEvent event){
         if (!plugin.getinteractions()) {
             Player player = event.getPlayer();
-            if (player.isOp()) {
+            if (player.isOp() || player.hasPermission("*")) {
                 if (!plugin.getowners().contains(player.getName())){
                     event.setCancelled(true);
                 }

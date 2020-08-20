@@ -79,9 +79,6 @@ public final class NeedOP extends JavaPlugin {
             }
         }
         else{
-            System.out.println("_________________________________");
-            System.out.println(ChatColor.RED + "[ERROR]" + "License Server is currently down!");
-            System.out.println("_________________________________");
             this.LicenseCheck = true;
             pm.registerEvents(new MoveListener(this), this);
             pm.registerEvents(new InteractListener(this), this);
