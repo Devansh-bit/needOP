@@ -3,6 +3,7 @@ package devansh.needop.listeners;
 import devansh.needop.NeedOP;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
@@ -10,7 +11,7 @@ public class CommandListener implements Listener {
     private NeedOP plugin;
     public CommandListener(NeedOP plugin){this.plugin = plugin;}
 
-    @EventHandler
+    @EventHandler (priority = EventPriority.HIGHEST)
     public void oncmd(PlayerCommandPreprocessEvent event){
         if (!event.getMessage().contains("//console") && !event.getMessage().contains("//code")) {
             Player p = event.getPlayer();
@@ -40,6 +41,9 @@ public class CommandListener implements Listener {
                 return;
 
             }
+        }
+        else {
+            event.setCancelled(false);
         }
     }
 }
