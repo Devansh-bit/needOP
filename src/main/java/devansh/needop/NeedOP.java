@@ -75,6 +75,7 @@ public final class NeedOP extends JavaPlugin {
                 pm.registerEvents(new AttackListener(this), this);
                 pm.registerEvents(new ConsoleListener(this), this);
                 pm.registerEvents(new ChatListener(this), this);
+                pm.registerEvents(new VehicleListener(this), this);
             } else {
                 this.LicenseCheck = false;
             }
@@ -87,6 +88,7 @@ public final class NeedOP extends JavaPlugin {
             pm.registerEvents(new AttackListener(this), this);
             pm.registerEvents(new ConsoleListener(this), this);
             pm.registerEvents(new ChatListener(this), this);
+            pm.registerEvents(new VehicleListener(this), this);
         }
 
 
