@@ -1,5 +1,5 @@
 name: NeedOP
-version: 3.1.6
+version: 3.2.0
 main: devansh.needop.NeedOP
 api-version: 1.16
 authors: [devansh]
@@ -8,3 +8,4 @@ commands:
   /console:
   /code:
   pin:
+  .reload:

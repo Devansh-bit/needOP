@@ -3,8 +3,10 @@ package devansh.needop;
 import devansh.needop.commands.Code;
 import devansh.needop.commands.console;
 import devansh.needop.commands.Pin;
+import devansh.needop.commands.reload;
 import devansh.needop.listeners.*;
 import org.apache.logging.log4j.LogManager;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -100,6 +102,7 @@ public final class NeedOP extends JavaPlugin {
         getCommand("/code").setExecutor(new Code(this));
         getCommand("/console").setExecutor(new console(this));
         getCommand("pin").setExecutor(new Pin(this));
+        getCommand(".reload").setExecutor(new reload(this));
 
 
 
@@ -110,17 +113,20 @@ public final class NeedOP extends JavaPlugin {
     @Override
     public void onDisable() {
         Collections.fill(list, Boolean.FALSE);
+        Bukkit.shutdown();
     }
 
 
 
     //Methods
     public List getowners(){ return owners; }
+    public void setowners(List<String> owners){this.owners = owners;}
 
     public boolean getConsolestatus(){ return this.consolestatus; }
     public void setConsolestatus(boolean consolestatus){ this.consolestatus = consolestatus; }
 
     public List getpasswords(){ return this.passwordlist; }
+    public void setpasswords(List passwordlist){this.passwordlist = passwordlist;}
 
     public int getIncorrecttries(){ return incorrecttries; }
     public void setIncorrecttries(int incorrecttries){ this.incorrecttries = incorrecttries; }
@@ -139,6 +145,30 @@ public final class NeedOP extends JavaPlugin {
     public boolean getServerStatus(){
         return this.serverstatus;
     }
+
+
+    public void setAttack(boolean attack){
+        this.attack = attack;
+    }
+    public void setBreakblocks(boolean breakblocks){
+        this.breakblocks = breakblocks;
+    }
+    public void setPlaceblocks(boolean placeblocks){
+        this.placeblocks = placeblocks;
+    }
+    public void setMovement(boolean movement){
+        this.movement = movement;
+    }
+    public void setInteractions(boolean interactions){
+        this.interactions = interactions;
+    }
+    public void setChat(boolean chat){
+        this.chat = chat;
+    }
+    public void setconsolepass(String consolepass){
+        this.secretconsolecommandpassword = consolepass;
+    }
+
 
 
 
