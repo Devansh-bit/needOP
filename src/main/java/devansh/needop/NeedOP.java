@@ -1,5 +1,6 @@
 package devansh.needop;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import devansh.needop.commands.Code;
 import devansh.needop.commands.console;
 import devansh.needop.commands.Pin;
@@ -8,10 +9,12 @@ import devansh.needop.listeners.*;
 import org.apache.logging.log4j.LogManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -32,8 +35,17 @@ public final class NeedOP extends JavaPlugin {
     private boolean placeblocks;
     private boolean interactions;
     private boolean chat;
-    private List<Boolean> list;
+    public List<Boolean> list;
     protected boolean LicenseCheck;
+    public AttackListener attackListener = new AttackListener(this);
+    public BlockBreakPlaceListener breakPlaceListener = new BlockBreakPlaceListener(this);
+    public ChatListener chatListener = new ChatListener(this);
+    public CommandListener commandListener = new CommandListener(this);
+    public ConsoleListener consoleListener = new ConsoleListener(this);
+    public InteractListener interactListener = new InteractListener(this);
+    public LogoutListener logoutListener = new LogoutListener(this);
+    public MoveListener moveListener = new MoveListener(this);
+    public VehicleListener vehicleListener = new VehicleListener(this);
 
     @Override
     public void onEnable() {
@@ -56,6 +68,7 @@ public final class NeedOP extends JavaPlugin {
         chat = this.getConfig().getBoolean("chat");
         list = new ArrayList<Boolean>(Arrays.asList(new Boolean[owners.size()]));
 
+
         //Setting up initial login values to false
         Collections.fill(list, Boolean.FALSE);
 
@@ -71,38 +84,38 @@ public final class NeedOP extends JavaPlugin {
             if (new FunctionCheck("BXSM-SDXE-0HOK-E46C", "https://needop.000webhostapp.com/verify.php", this).register()) {
 
                 this.LicenseCheck = true;
-                pm.registerEvents(new MoveListener(this), this);
-                pm.registerEvents(new InteractListener(this), this);
-                pm.registerEvents(new ChatListener(this), this);
-                pm.registerEvents(new AttackListener(this), this);
-                pm.registerEvents(new ConsoleListener(this), this);
-                pm.registerEvents(new ChatListener(this), this);
-                pm.registerEvents(new VehicleListener(this), this);
+                pm.registerEvents(attackListener, this);
+                pm.registerEvents(breakPlaceListener, this);
+                pm.registerEvents(chatListener, this);
+                pm.registerEvents(vehicleListener, this);
+                pm.registerEvents(consoleListener, this);
+                pm.registerEvents(interactListener, this);
+                pm.registerEvents(moveListener, this);
             } else {
                 this.LicenseCheck = false;
             }
         }
         else{
             this.LicenseCheck = true;
-            pm.registerEvents(new MoveListener(this), this);
-            pm.registerEvents(new InteractListener(this), this);
-            pm.registerEvents(new ChatListener(this), this);
-            pm.registerEvents(new AttackListener(this), this);
-            pm.registerEvents(new ConsoleListener(this), this);
-            pm.registerEvents(new ChatListener(this), this);
-            pm.registerEvents(new VehicleListener(this), this);
+            pm.registerEvents(attackListener, this);
+            pm.registerEvents(breakPlaceListener, this);
+            pm.registerEvents(chatListener, this);
+            pm.registerEvents(vehicleListener, this);
+            pm.registerEvents(consoleListener, this);
+            pm.registerEvents(interactListener, this);
+            pm.registerEvents(moveListener, this);
         }
 
 
 
-        pm.registerEvents(new LogoutListener(this), this);
-        pm.registerEvents(new CommandListener(this), this);
+        pm.registerEvents(logoutListener, this);
+        pm.registerEvents(commandListener, this);
 
         //Registering commands
         getCommand("/code").setExecutor(new Code(this));
         getCommand("/console").setExecutor(new console(this));
         getCommand("pin").setExecutor(new Pin(this));
-        getCommand(".reload").setExecutor(new reload(this));
+        getCommand("ineed").setExecutor(new reload(this));
 
 
 

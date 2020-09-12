@@ -2,7 +2,7 @@
 #DISCLAIMER! This plugin is solely for the purpose of server protection and therefore needs to have no loopholes.
 #EDIT ONLY THE PARAMETERS
 
-
+#To reload the plugin, you must have the needop.reload permission. the command is /ineed reload
 
 #Enter OP user name
 #permission:

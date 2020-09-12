@@ -1,5 +1,5 @@
 name: NeedOP
-version: 3.2.0
+version: 3.2.1
 main: devansh.needop.NeedOP
 api-version: 1.16
 authors: [devansh]
@@ -8,4 +8,14 @@ commands:
   /console:
   /code:
   pin:
-  .reload:
+  ineed:
+
+permissions:
+  needop.*:
+    default: false
+    children:
+      needop.reload: true
+
+  needop.reload:
+    default: false
+    description: Allows to use the reload command
